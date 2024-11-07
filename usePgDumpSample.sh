@@ -3,6 +3,9 @@
 
 # 設定
 backup_dir="/var/lib/postgresql/任意のバックアップディレクトリ"
+
+# Change USERNAME your username and 0.1.2.3 to your IP of connect to NAS
+
 remote_host="USERNAME@0.1.2.3::任意の/ディレクトリ"
 backup_prefix="backup"
 password_postgres="パスワード"

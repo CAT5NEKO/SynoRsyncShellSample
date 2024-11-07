@@ -3,6 +3,9 @@
 
 # 設定
 local_dir="任意のディレクトリ"
+
+# Change USERNAME your username and 0.1.2.3 to your IP of connect to NAS
+
 remote_host="USERNAME@0.1.2.3::任意の/ディレクトリ"
 current_date=$(date +"%Y-%m-%d")
 password_rsync="パスワード"
