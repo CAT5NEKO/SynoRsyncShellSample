@@ -8,7 +8,7 @@ There are two formats available: one for taking a pgdump backup and then transfe
 
 ## Caution
 
-This script directly embeds authentication information, which poses a security risk. Please use it with caution and ensure appropriate security measures are in place when using it.
+.env embeds authentication information, which poses a security risk. Please use it with caution and ensure appropriate security measures are in place when using it.
 
 ## License
 
