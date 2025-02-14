@@ -1,22 +1,21 @@
-# NASに送り付けるのみの場合を想定
-#!/bin/bash
+if [ -f .env ]; then
+    source .env
+else
+    echo ".env file not found!"
+    exit 1
+fi
 
-# 設定
-local_dir="任意のディレクトリ"
-
-# Change USERNAME your username and 0.1.2.3 to your IP of connect to NAS
-
-remote_host="USERNAME@0.1.2.3::任意の/ディレクトリ"
+local_dir="$LOCAL_DIR"
+remote_host="$REMOTE_HOST"
 current_date=$(date +"%Y-%m-%d")
-password_rsync="パスワード"
-
-log_file="/任意の/ディレクトリ/fileSend_log.txt"
-echo "Rsync started at $(date)" > $log_file
+log_file="$LOG_FILE"
 
 remote_dir="${remote_host}/files${current_date}"
 
+echo "Rsync started at $(date)" > $log_file
+
 echo "Syncing files from $local_dir to $remote_dir..." >> $log_file
-sshpass -p "$password_rsync" rsync -av $local_dir $remote_dir
+rsync -av $local_dir $remote_dir
 if [ $? -eq 0 ]; then
     echo "Rsync successful for files at $current_date." >> $log_file
 else
@@ -25,4 +24,3 @@ else
 fi
 
 echo "Rsync completed at $(date)" >> $log_file
-
